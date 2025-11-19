@@ -1,0 +1,140 @@
+/* --- Configurações Globais e Tipografia --- */
+body {
+    /* Adiciona padding no topo para o conteúdo não ficar escondido atrás da navbar fixa */
+    padding-top: 70px; 
+    font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    color: #212529;
+}
+
+h1, h2, h3, h4, h5, h6, .navbar-brand, .masthead-heading {
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700;
+}
+
+/* --- Navbar (Barra de Navegação) --- */
+.navbar {
+    background-color: #000000 !important; /* Força o fundo preto */
+    position: fixed; /* Fixa no topo */
+    top: 0;
+    width: 100%;
+    z-index: 1030; /* Garante que fique acima de tudo */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    transition: padding 0.3s ease;
+}
+
+/* Cor do texto da marca e dos links */
+.navbar-brand, 
+.navbar-nav .nav-link {
+    color: #ffffff !important; /* Texto Branco */
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    padding: 1rem 1.2rem;
+}
+
+/* Cor ao passar o mouse (Hover) e item ativo */
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #ffc107 !important; /* Um amarelo dourado para destaque */
+}
+
+.navbar-nav .nav-link.disabled {
+    color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Botão de menu no mobile (Hambúrguer) */
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Ícone do menu (forçando cor branca via SVG data URI) */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* --- Masthead (Cabeçalho Principal) --- */
+.masthead {
+    padding-top: 10rem;
+    padding-bottom: 6rem;
+    text-align: center;
+    color: #fff;
+    /* Gradiente escuro sobre a imagem para o texto ficar legível */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../assets/img/header-bg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+    background-color: #212529; /* Cor de fundo caso a imagem não carregue */
+}
+
+.masthead-subheading {
+    font-size: 1.5rem;
+    font-style: italic;
+    line-height: 1.5rem;
+    margin-bottom: 25px;
+    font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.masthead-heading {
+    font-size: 3.25rem;
+    font-weight: 700;
+    line-height: 3.25rem;
+    margin-bottom: 2rem;
+}
+
+/* --- Seções e Conteúdo --- */
+.page-section {
+    padding: 4rem 0;
+}
+
+.page-section h2 {
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+/* Responsividade de Imagens */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem; /* Bordas arredondadas suaves */
+    margin-bottom: 1.5rem;
+}
+
+/* Ajuste de layout para colunas */
+/* Força espaçamento vertical em dispositivos móveis */
+.row > .col {
+    margin-bottom: 20px;
+}
+
+/* --- Media Queries (Ajustes para Mobile) --- */
+@media (max-width: 768px) {
+    .masthead {
+        padding-top: 8rem;
+        padding-bottom: 4rem;
+    }
+
+    .masthead-heading {
+        font-size: 2.25rem;
+        line-height: 2.5rem;
+    }
+    
+    /* No mobile, as colunas devem empilhar. 
+       Como o HTML usa apenas "col", o flexbox tenta espremer.
+       Isso força uma largura mínima para facilitar a leitura no mobile */
+    .row {
+        flex-direction: column;
+    }
+    
+    .col {
+        width: 100%;
+        flex: 0 0 100%;
+    }
+}
+
+@media (min-width: 769px) {
+    .row {
+        flex-direction: row; /* Volta ao normal em desktop */
+    }
+}
